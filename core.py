@@ -19,7 +19,6 @@ class Message:
 @dataclass
 class Agent:
     agent_id: int
-    provider: str
     api_key: str
     model: str
     base_url: Optional[str] = None

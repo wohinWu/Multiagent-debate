@@ -1,8 +1,11 @@
-
-[
+{
+  "topic": "Is AI beneficial to human creativity?",
+  "rounds": 3,
+  "agent_count": 3,
+  "agents_file": "agents_local.json",
+  "agents": [
     {
       "agent_id": 0,
-      "api_key": "your_API_KEY",
       "model": "doubao-seed-2-0-mini",
       "base_url": "https://aihubmix.com/v1",
       "system_prompt": "You are an intelligent debater who values careful reasoning.",
@@ -10,7 +13,6 @@
     },
     {
       "agent_id": 1,
-      "api_key": "your_API_KEY",
       "model": "DeepSeek-V3",
       "base_url": "https://aihubmix.com/v1",
       "system_prompt": "You are an intelligent debater who tries to challenge assumptions.",
@@ -18,11 +20,10 @@
     },
     {
       "agent_id": 2,
-      "api_key": "your_API_KEY",
       "model": "DeepSeek-V3",
       "base_url": "https://aihubmix.com/v1",
       "system_prompt": "You are an intelligent debater who tries to challenge assumptions.",
       "temperature": 0.8
     }
   ]
-  
+}

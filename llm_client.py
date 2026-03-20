@@ -2,20 +2,6 @@ from __future__ import annotations
 
 from openai import OpenAI
 
-
-SUPPORTED_OPENAI_COMPATIBLE_PROVIDERS = {
-    "openai",
-    "deepseek",
-    "qwen",
-    "moonshot",
-    "openrouter",
-    "siliconflow",
-    "together",
-    "groq",
-    "custom",
-}
-
-
 def _build_openai_compatible_client(api_key: str, base_url: str | None = None) -> OpenAI:
     if base_url:
         return OpenAI(api_key=api_key, base_url=base_url)
@@ -40,14 +26,6 @@ def validate_agent(agent):
 
 
 def call_llm(agent, prompt: str) -> str:
-    provider = agent.provider.lower().strip()
-
-    if provider not in SUPPORTED_OPENAI_COMPATIBLE_PROVIDERS:
-        raise ValueError(
-            f"Unsupported provider: {agent.provider}. "
-            f"Currently supported via OpenAI-compatible API: {sorted(SUPPORTED_OPENAI_COMPATIBLE_PROVIDERS)}"
-        )
-
     client = _build_openai_compatible_client(agent.api_key, agent.base_url)
     response = client.chat.completions.create(
         model=agent.model,
